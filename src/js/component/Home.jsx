@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Form } from "./component/Form.js";
+import { Form } from "./Form.js";
 import "../../styles/home.css";
+import { AddCard } from "./AddCard.jsx";
+import { ContactList } from "./ContacList.jsx";
 
-export const home = () => {
+export const Home = () => {
 	// const [data, setData= useState({
 	// 	full_name:"",
 	// 	email:"",
 	// 	phone:"",
-	// 	address:"",
+	// 	address:"",ß
 
 	// })]
 
@@ -19,7 +21,7 @@ export const home = () => {
 	}
 return(
 	<div className="text-center mt-5">
-	<Form/>	
+	<ContactList/>	
 
 
 
