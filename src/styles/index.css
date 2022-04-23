@@ -1,3 +1,11 @@
 /* 
     General Styles
 */
+#circulo{
+    height:100px;
+    width:100px;
+    background:#2e4197;
+    -moz-border-radius:50px;
+    -webkit-border-radius:50px;
+    border-radius:50%;
+ }

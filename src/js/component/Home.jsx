@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "./Form.js";
 import "../../styles/home.css";
-import { AddCard } from "./AddCard.jsx";
-import { ContactList } from "./ContacList.jsx";
+import { ContactList } from "./ContactList.jsx";
 
 export const Home = () => {
 	// const [data, setData= useState({
