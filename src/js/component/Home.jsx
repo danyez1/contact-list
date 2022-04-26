@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "./Form.js";
 import "../../styles/home.css";
-import { ContactList } from "./ContactList.jsx";
+import { ContactList } from "../views/ContactList.jsx";
 
 export const Home = () => {
 	// const [data, setData= useState({
