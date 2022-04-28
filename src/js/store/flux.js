@@ -11,23 +11,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((result) => getStore(setStore({contactList:result})))
           .catch((error) => console.log("error", error));
       },
-      addContact: (Contact) => {
+      addContact: (contact) => {
         fetch(
-          "https://assets.breatheco.de/apis/fake/contact/agenda/daniely",
+          "https://assets.breatheco.de/apis/fake/contact/",
           {
-            method: "GET",
+            method: "POST",
             redirect: "follow",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify([
-              ...getStore().contactList,
-              { LABEL: Contact, donde: false },
-            ]),
+            body: JSON.stringify(contact),
           }
         )
           .then((response) =>
-            response.status === 200 ? getActions().getData() : ""
+            response.status === 200 ? getActions().getContacts() : ""
           )
           .catch((error) => console.log("error", error));
       },

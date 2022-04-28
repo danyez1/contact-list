@@ -16,10 +16,15 @@ const ContactCard = ({ contact }) => {
 
         <div className="w-50 p-3 d-flex flex-row align-items-start mx-0">
           <div className="w-50 h-75 align-self-center mt-5">
-            <i className="fas fa-pen "></i>
+            
+              <i className="fas fa-pen "></i>
+           
           </div>
           <div className="w-50 h-75 align-self-center mt-5">
+          <button type="button" className="btn btn-outline-danger"
+          >
             <i className="fas fa-trash-alt"></i>
+            </button>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import AddUserForm from "./views/AddUserForm.jsx";
+import { ContactList } from "./views/ContactList.jsx";
 
 //create your first component
 const Layout = () => {
@@ -29,6 +30,10 @@ const Layout = () => {
 						<Route exact path="/add-new-user">
 							<AddUserForm />
 						</Route>
+						<Route exact path="/contact-list">
+							<ContactList />
+						</Route>
+
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
