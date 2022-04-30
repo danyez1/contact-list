@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory  } from "react-router-dom";
+
 import { Context } from "../store/appContext";
 
 const AddUserForm = () => {
+
   const { store, actions } = useContext(Context);
   const [formData, setFormData] = useState({
     full_name: "",
@@ -11,7 +13,8 @@ const AddUserForm = () => {
     address: "",
     phone: "",
   });
-  console.log(formData);
+  
+  let history = useHistory(); 
   return (
     <>
       <div class="container-md">
@@ -77,23 +80,23 @@ const AddUserForm = () => {
               }
             />
           </div>
-          <Link to="/contact-list">
-            <button
-              className="btn btn-primary"
-              onClick={(e) => {
-                actions.addContact(formData);
-                e.preventDefault();
-              }}
-            >
-              Save
-            </button>
-          </Link>
+
+          <button
+            className="btn btn-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              actions.addContact(formData);
+              history.push(`/`);
+            }}
+          >
+            Save
+          </button>
         </form>
       </div>
       <Link to="/">
-      <a href="#" className="mx-autolink-primary">
-        or get back to contacts
-      </a>
+        <a href="#" className="mx-autolink-primary">
+          or get back to contacts
+        </a>
       </Link>
     </>
   );

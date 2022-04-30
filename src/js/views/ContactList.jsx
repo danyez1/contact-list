@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const ContactList = () => {
   const { store } = useContext(Context);
-  store.contactList && console.log(store.contactList[2].id);
+  store.contactList && console.log(store.contactList);
 
   return (
     <>
