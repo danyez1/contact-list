@@ -1,23 +1,26 @@
-import React, { useState, useContext } from "react";
-import { Link, useHistory  } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
-const AddUserForm = () => {
-
+const EditUserForm = () => {
   const { store, actions } = useContext(Context);
   const [formData, setFormData] = useState({
-    full_name: "",
+    full_name: myContact[0].full_name,
     email: "",
     agenda_slug: "daniely",
     address: "",
     phone: "",
   });
+  let { id } = useParams();
+  let history = useHistory();
 
+    const myContact = store.contactList.filter((contact)=>contact.id===id)
+   
+    console.log(myContact)
 
   
-  let history = useHistory(); 
-  return (
+  return  (
     <>
       <div className="container-md">
         <form>
@@ -95,13 +98,12 @@ const AddUserForm = () => {
           </button>
         </form>
       </div>
-      <Link to="/">
-        <a href="#" className="mx-autolink-primary">
-          or get back to contacts
-        </a>
+
+      <Link className="mx-autolink-primary" to="/">
+        or get back to contacts
       </Link>
     </>
   );
 };
 
-export default AddUserForm;
+export default EditUserForm;

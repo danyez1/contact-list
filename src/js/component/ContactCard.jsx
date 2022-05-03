@@ -5,7 +5,8 @@ import { Context } from "../store/appContext.js";
 
 const ContactCard = ({ contact }) => {
   const { actions } = useContext(Context);
-  let history = useHistory;
+  let history = useHistory();
+  console.log(contact)
   return (
     <>
       <div className="h-75 d-inline-block mx-auto w-50 border border-4k d-flex">
@@ -21,15 +22,15 @@ const ContactCard = ({ contact }) => {
 
         <div className="w-50 p-3 d-flex flex-row align-items-start mx-0">
           <div className="w-50 h-75 align-self-center mt-5">
-            <Link to='/add-new-user'>
-              <button
-                type="button"
-                className="btn btn-outline-danger"
-                onclick={(e) => {}}
-              >
-                <i className="fas fa-pen "></i>
-              </button>
-            </Link>
+            <button
+              type="button"
+              className="btn btn-outline-danger"
+              onClick={(e) => {
+                history.push(`/edit-user/${contact.id}`);
+              }}
+            >
+              <i className="fas fa-pen "></i>
+            </button>
           </div>
 
           <div className="w-50 h-75 align-self-center mt-5">

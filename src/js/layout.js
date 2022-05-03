@@ -11,6 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import AddUserForm from "./views/AddUserForm.jsx";
 import { ContactList } from "./views/ContactList.jsx";
+import EditUserForm from "./views/EditUserForm.jsx";
 
 //create your first component
 const Layout = () => {
@@ -34,8 +35,8 @@ const Layout = () => {
 							<ContactList />
 						</Route>
 
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/edit-user/:id">
+							<EditUserForm />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
