@@ -4,25 +4,31 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const EditUserForm = () => {
+  let { id } = useParams();
+  let history = useHistory();
   const { store, actions } = useContext(Context);
+  const myContact =
+    store.contactList &&
+    store.contactList.filter((contact) => contact.id === id)[0];
+  console.log(myContact);
   const [formData, setFormData] = useState({
-    full_name: myContact[0].full_name,
+    full_name: "",
     email: "",
     agenda_slug: "daniely",
     address: "",
     phone: "",
   });
-  let { id } = useParams();
-  let history = useHistory();
+  useEffect(() => {
+    if (myContact) {
+      setFormData(myContact);
+    }
+  }, [myContact]);
 
-    const myContact = store.contactList.filter((contact)=>contact.id===id)
-   
-    console.log(myContact)
-
-  
-  return  (
+  console.log(formData);
+  return (
     <>
       <div className="container-md">
+        <h1> Edit Contact</h1>
         <form>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
@@ -90,18 +96,19 @@ const EditUserForm = () => {
             className="btn btn-primary"
             onClick={(e) => {
               e.preventDefault();
-              actions.addContact(formData);
+              actions.udpdateContact(formData.id, formData);
               history.push(`/`);
             }}
           >
             Save
           </button>
+          <div>
+            <Link to="/" href="#" className="mx-2 link-primary">
+              or get back to contacts
+            </Link>
+          </div>
         </form>
       </div>
-
-      <Link className="mx-autolink-primary" to="/">
-        or get back to contacts
-      </Link>
     </>
   );
 };
